@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+
+type Props = {
+  writing: CollectionEntry<"writings">;
+};
+
+export async function getStaticPaths() {
+  const writings = await getCollection("writings");
+  return writings.map((item) => ({
+    params: { slug: item.slug },
+    props: { writing: item },
+  }));
+}
+
+const { writing } = Astro.props;
+const { Content } = await writing.render();
+---
+
+<Content />

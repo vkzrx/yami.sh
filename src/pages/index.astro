@@ -1,0 +1,75 @@
+---
+import MainLayout from "~/layouts/main.astro";
+import { Square } from "~/components/square";
+import { squares } from "~/data/squares";
+---
+
+<MainLayout title="Yami">
+  <div class="hidden md:block">
+    {squares.map((config) => <Square client:load {...config} />)}
+  </div>
+  <main
+    class="mt-6 px-6 tracking-wider md:mt-12 md:max-w-7xl md:px-24 md:pt-24 lg:px-56 2xl:max-w-screen-2xl 2xl:px-80 2xl:pt-48"
+  >
+    <h1 class="text-8xl text-amber-500 md:text-[144px] md:leading-none">Yami</h1>
+    <h2 class="text-3xl md:text-5xl">Software Engineer</h2>
+    <br />
+    <p class="text-xl">I'm Yami, a software engineer living in Paris, France.</p>
+    <br />
+    <p class="text-xl">
+      Lifelong learner and ardent vimmer, if I'm not tweaking my config files I'm probably learning
+      new things. I've been doing frontend development in <a
+        href="https://react.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-amber-500 hover:underline hover:underline-offset-4">React</a
+      > for a few years and recently I got hooked into system programming with <a
+        href="https://www.rust-lang.org"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-amber-500 hover:underline hover:underline-offset-4">Rust</a
+      > and <a
+        href="https://ziglang.org"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-amber-500 hover:underline hover:underline-offset-4">Zig</a
+      >.
+    </p>
+    <br />
+    <p class="text-xl">
+      I've worked at
+      <a
+        href="https://ledger.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-amber-500 hover:underline hover:underline-offset-4"
+      >
+        Ledger</a
+      > and contributed to the <a
+        href="https://fuel.network"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-amber-500 hover:underline hover:underline-offset-4">Modular</a
+      > chain paradigm.
+    </p>
+    <ul
+      class="mt-10 flex items-center justify-center space-x-10 md:mt-4 md:justify-start md:space-x-6"
+    >
+      <li class="border-b-2 border-b-transparent pb-1 duration-200 hover:border-b-amber-500">
+        <a href="https://github.com/0xYami" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/github.svg" alt="Github Logo" class="h-6 w-6" />
+        </a>
+      </li>
+      <li class="border-b-2 border-b-transparent pb-1 duration-200 hover:border-b-amber-500">
+        <a href="https://twitter.com/0xYami9" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/twitter.svg" alt="Twitter Logo" class="h-6 w-6" />
+        </a>
+      </li>
+      <li class="border-b-2 border-b-transparent pb-1 duration-200 hover:border-b-amber-500">
+        <a href="mailto:0xYami@proton.me" target="_blank" rel="noopener noreferrer">
+          <img src="/assets/envelope.svg" alt="Envelope Logo" class="h-6 w-6" />
+        </a>
+      </li>
+    </ul>
+  </main>
+</MainLayout>

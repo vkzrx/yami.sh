@@ -1,0 +1,27 @@
+---
+import type { MarkdownHeading } from "astro";
+
+type Props = {
+  headings: MarkdownHeading[];
+  // The depth of the headings to display.
+  depth: number;
+};
+
+const { headings, depth } = Astro.props;
+const filteredHeadings = headings.filter((heading) => heading.depth < depth + 1);
+---
+
+<ul class="w-56 list-none">
+  {
+    filteredHeadings.map((heading) => (
+      <li>
+        <a
+          href={`#${heading.slug}`}
+          class="w-full text-sm text-gray-300 no-underline hover:text-indigo-500"
+        >
+          {heading.text}
+        </a>
+      </li>
+    ))
+  }
+</ul>

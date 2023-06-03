@@ -1,0 +1,105 @@
+---
+import MainLayout from "~/layouts/main.astro";
+
+type Technology =
+  | "rust"
+  | "next"
+  | "astro"
+  | "react"
+  | "solid"
+  | "typescript"
+  | "tailwind"
+  | "axum"
+  | "react-query"
+  | "fastify"
+  | "valtio"
+  | "docker";
+
+type Project = {
+  name: string;
+  description: string;
+  website?: string;
+  github: string;
+  technologies: Technology[];
+};
+
+const projects: Project[] = [
+  {
+    name: "Ichiba",
+    description: "Japanese style online store where tradition graces fashion",
+    github: "https://github.com/0xYami/ichiba",
+    technologies: ["rust", "axum", "next", "typescript", "tailwind"],
+  },
+  {
+    name: "Onix",
+    description: "Ethereum browser wallet",
+    github: "https://github.com/0xYami/onix",
+    technologies: ["solid", "typescript", "tailwind", "fastify"],
+  },
+  {
+    name: "Fuel.build",
+    description: "Showcase website of the Fuel blockchain ecosystem",
+    website: "https://fuel.build",
+    github: "https://github.com/0xYami/fuel.build",
+    technologies: ["astro", "typescript", "tailwind"],
+  },
+  {
+    name: "Fuels-react",
+    description: "A React hook library for the Fuel blockchain",
+    website: "https://fuels-react.com",
+    github: "https://github.com/0xYami/fuels-react",
+    technologies: ["react", "react-query", "typescript", "valtio"],
+  },
+];
+
+const technologyBorderColors: Record<Technology, string> = {
+  rust: "border-orange-500",
+  next: "border-blue-500",
+  astro: "border-purple-500",
+  react: "border-blue-500",
+  solid: "border-green-500",
+  typescript: "border-teal-500",
+  tailwind: "border-sky-500",
+  axum: "border-red-800",
+  "react-query": "border-yellow-500",
+  fastify: "border-slate-500",
+  valtio: "border-slate-500",
+  docker: "border-blue-600",
+};
+---
+
+<MainLayout title="Yami | Projects" withSocials>
+  <main class="px-10 pb-10 tracking-wider md:mt-10 md:px-32 lg:px-64">
+    <h1 class="mb-6 text-5xl text-green-500">Projects</h1>
+    <div class="my-8 h-1 w-64 bg-green-500"></div>
+    <ul class="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
+      {
+        projects.map((project) => (
+          <li>
+            <a
+              href={project.website ?? project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative -ml-4 flex h-48 w-full flex-col justify-start border-4 border-gray-500/20 px-4 pt-2 hover:border-green-500"
+            >
+              <div class="flex w-full items-center justify-between">
+                <div class="my-2 text-4xl text-green-500">{project.name}</div>
+                <img src="/assets/github.svg" alt="Github Icon" class="h-5 w-5" />
+              </div>
+              <div class="my-2 line-clamp-2 text-start text-lg">{project.description}</div>
+              <ul class="absolute bottom-2 right-4 flex w-full justify-end space-x-2">
+                {project.technologies.map((technology) => (
+                  <li
+                    class={`border px-1 pt-1 text-xs capitalize md:text-sm ${technologyBorderColors[technology]}`}
+                  >
+                    {technology}
+                  </li>
+                ))}
+              </ul>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</MainLayout>

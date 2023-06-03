@@ -1,0 +1,24 @@
+---
+type Props = {
+  items: string[];
+};
+const props = Astro.props;
+---
+
+<div class="inline-block rounded border border-[#24292e] bg-black">
+  <ul class="flex list-none justify-center space-x-2 px-6">
+    {
+      props.items.map((item, index) => (
+        <li class="flex items-center space-x-3">
+          <span class="text-neutral-500 before:content-['→']" />
+          <div class="flex h-12 w-28 items-center justify-center rounded border border-[#24292e]">
+            {item}
+          </div>
+          {index === props.items.length - 1 && (
+            <span class="text-neutral-500 before:content-['→']" />
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</div>

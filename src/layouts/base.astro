@@ -1,0 +1,75 @@
+---
+type Props = {
+  title: string;
+};
+
+const props = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Yami" />
+    <meta name="description" content="Arcade theme portfolio" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href="/fonts/AnalogueOS.ttf" as="font" type="font/ttf" crossorigin />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content="Yami" />
+    <meta property="og:description" content="Arcade theme portfolio" />
+    <meta property="og:image" content="https://yami.sh/assets/preview.png" />
+    <meta property="og:url" content="https://yami.sh" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yami" />
+    <meta name="twitter:description" content="Arcade theme portfolio" />
+    <meta name="twitter:image" content="https://yami.sh/assets/preview.png" />
+    <meta name="twitter:url" content="https://yami.sh" />
+    <title>{props.title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "AnalogueOS";
+    src: url("/fonts/AnalogueOS.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: "Nunito";
+    src: url("/fonts/Nunito.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  @font-face {
+    font-family: "Lora";
+    src: url("/fonts/Lora.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+  }
+
+  html {
+    font-family: "AnalogueOS", sans-serif;
+  }
+
+  body {
+    color: white;
+    background-color: black;
+    background-image: radial-gradient(#1a1a1a 1px, transparent 1px),
+      radial-gradient(#313131 1px, transparent 1px);
+    background-position: 0 0, 0 0;
+    background-size: 0.5em 0.5em;
+    background-repeat: repeat;
+  }
+</style>

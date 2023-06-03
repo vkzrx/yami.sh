@@ -1,0 +1,42 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "~/layouts/main.astro";
+import { Quote } from "~/components/quote";
+
+const writings = await getCollection("writings");
+const nonDraftWritings = writings.filter((item) => !item.data.draft);
+---
+
+<MainLayout title="Yami | Writings" withSocials>
+  <Quote client:only />
+  <main class="px-10 pb-10 tracking-wider md:mt-10 md:px-32 lg:px-64">
+    <ul class="w-3/4 space-y-6">
+      {
+        nonDraftWritings.map((item) => (
+          <li class="group">
+            <a href={`/writings/${item.slug}`} class="space-y-1">
+              <div class="text-4xl text-indigo-500">{item.data.title}</div>
+              <div class="flex space-x-4">
+                <time datetime={item.data.date.toISOString()} class="text-neutral-400">
+                  {item.data.date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </time>
+                <ul class="flex space-x-2">
+                  {item.data.tags.map((tag) => (
+                    <li class="flex items-center space-x-2">{tag}</li>
+                  ))}
+                </ul>
+              </div>
+              <div class="border-l-4 border-l-indigo-500 pl-4 text-lg text-neutral-400">
+                {item.data.description}
+              </div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</MainLayout>
