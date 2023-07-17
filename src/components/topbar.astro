@@ -115,6 +115,12 @@ const { pathname } = Astro.url;
           >
         </a>
       </li>
+      <li>
+        <a href="/uses" class="flex items-center space-x-2">
+          <span class="h-2 w-2 bg-orange-500"></span>
+          <span class:list={[{ "text-orange-500": pathname.startsWith("/uses") }]}>Uses</span>
+        </a>
+      </li>
     </ul>
   </menu>
 </header>
