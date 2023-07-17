@@ -1,0 +1,166 @@
+---
+import MainLayout from "~/layouts/main.astro";
+
+type Item = {
+  name: string;
+  category?: string;
+  link: string;
+};
+
+const editor: Item[] = [
+  {
+    name: "Neovim",
+    link: "https://neovim.io",
+  },
+  {
+    name: "Catppuccin",
+    category: "Theme",
+    link: "https://github.com/catppuccin/catppuccin",
+  },
+  {
+    name: "JetBrains Mono",
+    category: "Font",
+    link: "https://fonts.google.com/specimen/JetBrains+Mono?query=jetbrains",
+  },
+];
+
+type TerminalItem = {
+  name: string;
+  description: string;
+  link: string;
+};
+
+const terminal: TerminalItem[] = [
+  {
+    name: "Alacritty",
+    description: "A cross-platform, OpenGL terminal emulator",
+    link: "https://alacritty.org",
+  },
+  {
+    name: "Fish",
+    description: "User-friendly command-line shell",
+    link: "https://fishshell.com",
+  },
+  {
+    name: "Tmux",
+    description: "Terminal multiplexer",
+    link: "https://github.com/tmux/tmux",
+  },
+  {
+    name: "Starship",
+    description: "Cross-Shell prompt",
+    link: "https://starship.rs",
+  },
+  {
+    name: "Lazygit",
+    description: "TUI for git commands",
+    link: "https://github.com/jesseduffield/lazygit",
+  },
+  {
+    name: "fzf",
+    description: "Command-line fuzzy finder",
+    link: "https://github.com/junegunn/fzf",
+  },
+  {
+    name: "fd",
+    description: "Faster find",
+    link: "https://github.com/sharkdp/fd",
+  },
+  {
+    name: "Ripgrep",
+    description: "Search tool like grep",
+    link: "https://github.com/BurntSushi/ripgrep",
+  },
+  {
+    name: "Exa",
+    description: "Modern replacement for ls",
+    link: "https://the.exa.website",
+  },
+  {
+    name: "Bat",
+    description: "Better `cat`",
+    link: "https://github.com/sharkdp/bat",
+  },
+];
+
+const desktop: Item[] = [
+  {
+    name: "Arc",
+    category: "Browser",
+    link: "https://arc.net",
+  },
+  {
+    name: "Raycast",
+    category: "Launcher",
+    link: "https://www.raycast.com",
+  },
+  {
+    name: "Obsidian",
+    category: "Note-taking",
+    link: "https://obsidian.md",
+  },
+];
+---
+
+<MainLayout title="Yami | Uses" withSocials>
+  <main class="px-10 pb-10 tracking-wider md:mt-10 md:px-32 lg:px-64">
+    <h1 class="mb-6 text-3xl">Uses</h1>
+    <div>
+      My dotfiles can be found <a
+        href="https://github.com/0xYami/dotfiles"
+        class="underline decoration-orange-500 decoration-2 underline-offset-4 hover:text-orange-500"
+        >here</a
+      >.
+    </div>
+    <h2 class="my-4 text-xl text-orange-500"># Editor</h2>
+    <ul class="mb-10 space-y-1">
+      {
+        editor.map((item) => (
+          <li class="flex items-center space-x-2">
+            <div class="h-1 w-1 bg-white" />
+            <a href={item.link} class="group">
+              {item.category ? <span class="">{item.category}: </span> : null}
+              <span class="underline decoration-orange-500 decoration-2 underline-offset-4 group-hover:text-orange-500">
+                {item.name}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <h2 class="mb-4 text-xl text-orange-500"># Terminal</h2>
+    <ul class="mb-10 space-y-1">
+      {
+        terminal.map((item) => (
+          <li class="flex items-center space-x-2">
+            <div class="h-1 w-1 bg-white" />
+            <a href={item.link} class="group">
+              <>
+                <span class="underline decoration-orange-500 decoration-2 underline-offset-4 group-hover:text-orange-500">
+                  {item.name}
+                </span>
+                <span>: {item.description}</span>
+              </>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <h2 class="mb-4 text-xl text-orange-500"># Desktop</h2>
+    <ul class="mb-10 space-y-1">
+      {
+        desktop.map((item) => (
+          <li class="flex items-center space-x-2">
+            <div class="h-1 w-1 bg-white" />
+            <a href={item.link} class="group">
+              {item.category ? <span class="">{item.category}: </span> : null}
+              <span class="underline decoration-orange-500 decoration-2 underline-offset-4 group-hover:text-orange-500">
+                {item.name}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</MainLayout>
