@@ -1,14 +1,15 @@
 import { defineConfig } from "astro/config";
 import prefetch from "@astrojs/prefetch";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import svelte from "@astrojs/svelte";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://yami.sh",
-  integrations: [prefetch(), react(), tailwind(), sitemap(), mdx()],
+  integrations: [prefetch(), sitemap(), mdx(), react(), svelte(), tailwind()],
   markdown: {
     shikiConfig: {
       theme: "github-dark-dimmed",

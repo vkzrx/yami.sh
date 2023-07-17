@@ -1,0 +1,37 @@
+---
+import MainLayout from "~/layouts/main.astro";
+
+type Prototype = {
+  name: string;
+  date: string;
+  video: string;
+};
+
+const prototypes: Prototype[] = [
+  {
+    name: "Typing",
+    date: "July 2023",
+    video: "/assets/videos/typing-animation.mp4",
+  },
+];
+---
+
+<MainLayout title="Yami | Craft" withSocials>
+  <main class="px-10 pb-10 font-nunito tracking-wider md:mt-10 md:px-32 lg:px-64">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+      {
+        prototypes.map((prototype) => (
+          <div class="relative rounded border-[0.5px] border-neutral-600 border-opacity-40 bg-black p-2">
+            <video autoplay loop muted>
+              <source src={prototype.video} type="video/mp4" />
+            </video>
+            <div class="absolute bottom-5 z-10 flex w-full justify-between pl-4 pr-8">
+              <span class="text-xs text-white text-opacity-90">{prototype.name}</span>
+              <span class="text-xs text-neutral-400">{prototype.date}</span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</MainLayout>
