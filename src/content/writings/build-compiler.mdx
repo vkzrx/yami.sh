@@ -1,10 +1,10 @@
 ---
 layout: ../../layouts/writing.astro
-title: "Building a compiler"
-description: "Diving into system programming using Rust and learning about compilers by building one from scratch."
+title: "Crafting a Tokenizer"
+description: "Learning about compilers by building a tokenizer in Rust."
 author: Yami
-date: 2023-06-23
-draft: false
+date: 2023-07-18
+draft: true
 tags:
   - Rust
 ---
@@ -16,7 +16,7 @@ As a software engineer, I spend hours almost every day writing code. Whether I'm
 
 **How do we go from code to instructions that machines understand?**
 
-In this post, we'll go over the basics of compilers and build a very simple one in Rust. More specifically, we'll build a compiler that understands the following code:
+In this post, we'll learn about the basics of compilers by building the very first component of a compiler in Rust, the tokenizer. More specifically, we'll build a tokenizer that understands the following code:
 
 ```rust
 fn add(x: i32, y: i32) -> i32 {
@@ -68,17 +68,3 @@ At this stage, we don't verify yet if those tokens are grammatically correct whe
 While the role of the lexer is to give meaning to sequences of characters through tokens, the role of the parser is to construct sentences using those tokens. Sentences are called `Statement` or `Expression`. As an example, `let x = 42;` is a variable declaration and falls under the `Statement` category. On the other hand, `3 + 39` is an `Expression`.
 
 The output of the parser is called an `Abstract Syntax Tree` (AST). It's a way to represent the code in a structure that's easier to work with.
-
-TODO
-
-## Semantic analysis
-
-TODO
-
-## Machine Instructions
-
-TODO
-
-## Implementation
-
-TODO
