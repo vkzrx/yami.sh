@@ -24,7 +24,7 @@ module.exports = defineConfig({
       rules: {},
     },
     {
-      files: ["*.tsx"],
+      files: ["*.ts", "*.tsx"],
       parser: "@typescript-eslint/parser",
       extends: ["plugin:@typescript-eslint/recommended"],
       rules: {
