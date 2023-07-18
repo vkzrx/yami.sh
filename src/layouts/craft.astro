@@ -1,0 +1,74 @@
+---
+import type { MarkdownLayoutProps } from "astro";
+import BaseLayout from "./base.astro";
+import { crafts } from "~/data/crafts";
+
+type Props = MarkdownLayoutProps<{
+  title: string;
+  date: string;
+}>;
+
+const { frontmatter } = Astro.props;
+
+const position = crafts.findIndex((craft) => craft.name === frontmatter.title);
+const previousCraft = position > 0 ? crafts[position - 1] : null;
+const nextCraft = position < crafts.length - 1 ? crafts[position + 1] : null;
+---
+
+<BaseLayout title={`Yami | ${frontmatter.title}`}>
+  <div
+    class="left-8 hidden h-screen w-48 pb-24 pt-12 md:fixed md:left-16 md:flex md:items-start md:justify-center 2xl:left-64"
+  >
+    <a
+      href="/crafts"
+      class="flex items-center space-x-2 text-gray-300 no-underline hover:text-purple-500"
+    >
+      <svg
+        width="15"
+        height="15"
+        viewBox="0 0 15 15"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          d="M6.85355 3.14645C7.04882 3.34171 7.04882 3.65829 6.85355 3.85355L3.70711 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H3.70711L6.85355 11.1464C7.04882 11.3417 7.04882 11.6583 6.85355 11.8536C6.65829 12.0488 6.34171 12.0488 6.14645 11.8536L2.14645 7.85355C1.95118 7.65829 1.95118 7.34171 2.14645 7.14645L6.14645 3.14645C6.34171 2.95118 6.65829 2.95118 6.85355 3.14645Z"
+          fill="currentColor"
+          fill-rule="evenodd"
+          clip-rule="evenodd"></path></svg
+      >
+      <span class="text-sm">Crafts</span>
+    </a>
+  </div>
+  <main class="flex w-screen flex-col items-center px-6 pb-24 font-nunito md:px-48 2xl:px-96">
+    <article class="w-full md:w-2/3">
+      <div class="mb-6 space-y-4 pt-12">
+        <h1 class="mb-2 font-lora text-lg">{frontmatter.title}</h1>
+        <time datetime={new Date(frontmatter.date).toISOString()} class="text-sm text-neutral-400">
+          {
+            new Date(frontmatter.date).toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+            })
+          }
+        </time>
+      </div>
+      <slot />
+    </article>
+    <div class="mb-10 h-[0.1px] w-full bg-neutral-800 md:w-2/3"></div>
+    <div class="flex w-full justify-between text-sm md:w-2/3">
+      <a
+        href={previousCraft?.href}
+        class={`flex flex-col left-0 hover:text-purple-500 ${previousCraft ? "" : "invisible"}`}
+      >
+        <span class="text-neutral-400">Previous</span>
+        <span>{previousCraft?.name}</span>
+      </a>
+      <a
+        href={nextCraft?.href}
+        class={`flex flex-col items-end hover:text-purple-500 ${nextCraft ? "" : "invisible"}`}
+      >
+        <span class="text-neutral-400">Next</span>
+        <span>{nextCraft?.name}</span>
+      </a>
+    </div>
+  </main>
+</BaseLayout>

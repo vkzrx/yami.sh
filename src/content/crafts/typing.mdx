@@ -1,0 +1,26 @@
+---
+layout: ../../layouts/craft.astro
+title: Typing
+date: 2023-07-18
+draft: false
+tags:
+  - svelte
+---
+
+import Typing from "~/components/crafts/typing.svelte";
+import DemoWindow from "~/components/demo-window.astro";
+
+<DemoWindow>
+  <Typing
+    client:only="svelte"
+    sequence={[
+      "Hey there",
+      "We'll take a pepperoni pizza",
+      "We'll take ribs with fries",
+      "We'll take two glasses of watter",
+    ]}
+    speed={75}
+    repeat
+    class="w-80 text-xl"
+  />
+</DemoWindow>

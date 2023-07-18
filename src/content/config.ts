@@ -12,6 +12,17 @@ const writings = defineCollection({
   }),
 });
 
+const crafts = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    date: z.date(),
+    draft: z.boolean(),
+    tags: z.array(z.string()),
+  }),
+});
+
 export const collections = {
   writings,
+  crafts,
 };

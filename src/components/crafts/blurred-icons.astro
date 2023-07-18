@@ -1,4 +1,4 @@
-<div class="root bg-[#1A1A1A]">
+<div class="root">
   <!-- Vite -->
   <button type="button" class="bg-black">
     <div class="blurred vite"></div>
@@ -160,7 +160,6 @@
 
 <style>
   .root {
-    margin-top: 100px;
     width: 50%;
     display: flex;
     items-align: center;
@@ -168,6 +167,12 @@
     padding-top: 3rem;
     padding-bottom: 3rem;
     border-radius: 0.75rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .root {
+      width: 100%;
+    }
   }
 
   button {

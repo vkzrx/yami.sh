@@ -51,7 +51,7 @@
   });
 </script>
 
-<div class="w-96 flex items-center space-x-1 {$$props.class || ''}">
+<div class="flex items-center space-x-1 {$$props.class || ''}">
   <span>{text}</span>
   <div class="cursor" />
 </div>
