@@ -6,16 +6,16 @@ import type { Craft } from "~/data/crafts";
 // Split prototypes into columns to preserve height
 const columns: Craft[][] = crafts.reduce<Craft[][]>(
   (acc, curr, idx) => {
-    acc[idx % 2].push(curr);
+    acc[idx % 3].push(curr);
     return acc;
   },
-  [[], []],
+  [[], [], []],
 );
 ---
 
-<MainLayout title="Yami | Craft" withSocials>
-  <main class="px-10 pb-10 font-nunito tracking-wider md:mt-10 md:px-32 lg:px-64">
-    <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+<MainLayout title="Yami | Crafts">
+  <main class="px-10 pb-10 font-nunito tracking-wider md:mt-10 md:px-32">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
       {
         columns.map((column) => (
           <div class="flex flex-col space-y-2">

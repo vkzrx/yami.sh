@@ -14,8 +14,12 @@ const props = Astro.props;
 <BaseLayout title={props.title}>
   <TopBar />
   {
-    props.withSocials && (
-      <div class="items-center-center fixed bottom-16 left-16 hidden w-40 flex-col md:flex">
+    (
+      <div
+        class={`items-center-center fixed bottom-16 left-16 hidden w-40 ${
+          props.withSocials ? "md:flex md:flex-col" : "md:hidden"
+        }`}
+      >
         <ul class="mb-4 flex md:space-x-6">
           <li>
             <a href="mailto:0xYami@proton.me" target="_blank" rel="noopener noreferrer">
