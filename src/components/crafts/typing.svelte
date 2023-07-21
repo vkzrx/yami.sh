@@ -13,7 +13,7 @@
     let letterIndex = 0;
     let currentText = sequence[0];
     let direction: 'forward' | 'backward' = 'forward';
-    let prefix = getCommonPrefix(sequence[0], sequence[1]);
+    let prefix = !!sequence[0] && !!sequence[1] ? getCommonPrefix(sequence[0], sequence[1]) : '';
 
     const timer = setInterval(() => {
       if (direction === 'backward') {
