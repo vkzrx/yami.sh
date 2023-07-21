@@ -1,17 +1,17 @@
 ---
 layout: ../../layouts/craft.astro
-title: Typing
+title: Typing Animation
 date: 2023-07-18
 draft: false
 tags:
   - svelte
 ---
 
-import Typing from "~/components/crafts/typing.svelte";
+import TypingAnimation from "~/components/crafts/typing-animation.svelte";
 import DemoWindow from "~/components/demo-window.astro";
 
 <DemoWindow>
-  <Typing
+  <TypingAnimation
     client:only="svelte"
     sequence={[
       "Hey there",

@@ -7,10 +7,10 @@ export type Craft = {
 
 export const crafts: Craft[] = [
   {
-    name: "Typing",
+    name: "Typing Animation",
     date: "July 2023",
     video: "/assets/videos/typing-animation.mp4",
-    href: "/crafts/typing",
+    href: "/crafts/typing-animation",
   },
   {
     name: "Blurred Icons",
