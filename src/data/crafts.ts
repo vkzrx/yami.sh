@@ -7,6 +7,11 @@ export type Craft = {
 
 export const crafts: Craft[] = [
   {
+    name: "Onix Wallet",
+    date: "May 2023",
+    video: "/assets/videos/onix-wallet.mp4",
+  },
+  {
     name: "Typing Animation",
     date: "July 2023",
     video: "/assets/videos/typing-animation.mp4",
