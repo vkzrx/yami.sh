@@ -146,4 +146,40 @@ export const quotes: Quote[] = [
     content:
       "Without requirements or design, programming is the art of adding bugs to an empty text file.",
   },
+  {
+    author: "Chinese Proverb",
+    content: "Learning is a treasure that will follow its owner everywhere.",
+  },
+  {
+    author: "B.B. King",
+    content: "The beautiful thing about learning is that no one can take it away from you.",
+  },
+  {
+    author: "Mark Twain",
+    content: "The secret of getting ahead is getting started.",
+  },
+  {
+    author: "William Butler Yeats",
+    content: "Education is not the filling of a pail, but the lighting of a fire.",
+  },
+  {
+    author: "William Butler Yeats",
+    content: "Do not wait to strike till the iron is hot, but make it hot by striking.",
+  },
+  {
+    author: "Lao Tzu",
+    content: "The journey of a thousand miles begins with one step.",
+  },
+  {
+    author: "Albert Einstein",
+    content: "Education is not the learning of facts, but the training of the mind to think.",
+  },
+  {
+    author: "Albert Einstein",
+    content: "A person who never made a mistake never tried anything new.",
+  },
+  {
+    author: "Sydney J. Harris",
+    content: "The whole purpose of education is to turn mirrors into windows.",
+  },
 ];
