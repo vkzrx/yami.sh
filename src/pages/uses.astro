@@ -7,6 +7,19 @@ type Item = {
   link: string;
 };
 
+const hardware: Item[] = [
+  {
+    name: "Keychron Q7 QMK - Red switches",
+    category: "Keyboard",
+    link: "https://www.keychron.com/products/keychron-q7-qmk-custom-mechanical-keyboard",
+  },
+  {
+    name: "Logitech Yeti",
+    category: "Microphone",
+    link: "https://www.logitechg.com/en-us/products/streaming-gear/yeti-premium-usb-microphone.988-000100.html",
+  },
+];
+
 const editor: Item[] = [
   {
     name: "Neovim",
@@ -85,9 +98,9 @@ const terminal: TerminalItem[] = [
 
 const desktop: Item[] = [
   {
-    name: "Arc",
+    name: "Google Chrome",
     category: "Browser",
-    link: "https://arc.net",
+    link: "https://www.google.com/intl/en_us/chrome",
   },
   {
     name: "Raycast",
@@ -112,6 +125,22 @@ const desktop: Item[] = [
         >here</a
       >.
     </div>
+    <h2 class="my-4 text-xl text-orange-500"># Hardware</h2>
+    <ul class="mb-10 space-y-1">
+      {
+        hardware.map((item) => (
+          <li class="flex items-center space-x-2">
+            <div class="h-1 w-1 bg-white" />
+            <a href={item.link} class="group">
+              {item.category ? <span class="">{item.category}: </span> : null}
+              <span class="underline decoration-orange-500 decoration-2 underline-offset-4 group-hover:text-orange-500">
+                {item.name}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
     <h2 class="my-4 text-xl text-orange-500"># Editor</h2>
     <ul class="mb-10 space-y-1">
       {
