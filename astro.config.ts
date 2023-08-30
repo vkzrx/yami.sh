@@ -12,7 +12,7 @@ export default defineConfig({
   adapter: vercel({
     analytics: true,
   }),
-  output: "server",
+  output: "hybrid",
   site: "https://yami.sh",
   integrations: [prefetch(), sitemap(), mdx(), react(), svelte(), tailwind()],
   markdown: {

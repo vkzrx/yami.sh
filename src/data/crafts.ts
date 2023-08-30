@@ -23,4 +23,10 @@ export const crafts: Craft[] = [
     video: "/assets/videos/blurred-icons.mp4",
     href: "/crafts/blurred-icons",
   },
+  {
+    name: "Matrix Text",
+    date: "August 2023",
+    video: "/assets/videos/matrix-text.mp4",
+    href: "/crafts/matrix-text",
+  },
 ].reverse();
