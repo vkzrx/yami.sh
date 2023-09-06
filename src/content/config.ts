@@ -1,3 +1,4 @@
+// @ts-expect-error - Ignore missing types when the project has not been built e.g. CI environment
 import { z, defineCollection } from "astro:content";
 
 const writings = defineCollection({
