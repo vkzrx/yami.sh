@@ -1,4 +1,6 @@
 ---
+import { ViewTransitions } from "astro:transitions";
+
 type Props = {
   title: string;
 };
@@ -28,48 +30,48 @@ const props = Astro.props;
     <meta name="twitter:image" content="https://yami.sh/assets/preview.png" />
     <meta name="twitter:url" content="https://yami.sh" />
     <title>{props.title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <slot />
+    <style is:global>
+      @font-face {
+        font-family: "AnalogueOS";
+        src: url("/fonts/AnalogueOS.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: fallback;
+      }
+
+      @font-face {
+        font-family: "Nunito";
+        src: url("/fonts/Nunito.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: fallback;
+      }
+
+      @font-face {
+        font-family: "Lora";
+        src: url("/fonts/Lora.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+        font-display: fallback;
+      }
+
+      html {
+        font-family: "AnalogueOS", sans-serif;
+      }
+
+      body {
+        color: white;
+        background-color: black;
+        background-image: radial-gradient(#1a1a1a 1px, transparent 1px),
+          radial-gradient(#313131 1px, transparent 1px);
+        background-position: 0 0, 0 0;
+        background-size: 0.5em 0.5em;
+        background-repeat: repeat;
+      }
+    </style>
   </body>
 </html>
-
-<style is:global>
-  @font-face {
-    font-family: "AnalogueOS";
-    src: url("/fonts/AnalogueOS.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: fallback;
-  }
-
-  @font-face {
-    font-family: "Nunito";
-    src: url("/fonts/Nunito.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: fallback;
-  }
-
-  @font-face {
-    font-family: "Lora";
-    src: url("/fonts/Lora.ttf") format("truetype");
-    font-weight: normal;
-    font-style: normal;
-    font-display: fallback;
-  }
-
-  html {
-    font-family: "AnalogueOS", sans-serif;
-  }
-
-  body {
-    color: white;
-    background-color: black;
-    background-image: radial-gradient(#1a1a1a 1px, transparent 1px),
-      radial-gradient(#313131 1px, transparent 1px);
-    background-position: 0 0, 0 0;
-    background-size: 0.5em 0.5em;
-    background-repeat: repeat;
-  }
-</style>

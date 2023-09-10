@@ -14,6 +14,9 @@ export default defineConfig({
   }),
   output: "hybrid",
   site: "https://yami.sh",
+  experimental: {
+    viewTransitions: true,
+  },
   integrations: [prefetch(), sitemap(), mdx(), react(), svelte(), tailwind()],
   markdown: {
     shikiConfig: {
