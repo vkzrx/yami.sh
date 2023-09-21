@@ -1,7 +1,7 @@
 {
   "name": "yami.sh",
-  "author": "0xYami",
-  "description": "0xYami personal website",
+  "author": "Yami",
+  "description": "My personal website",
   "type": "module",
   "version": "0.0.1",
   "private": true,
