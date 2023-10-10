@@ -12,7 +12,7 @@ const props = Astro.props;
 const filteredHeadings = props.headings.filter((heading) => heading.depth < props.depth + 1);
 ---
 
-<aside class={props.class}>
+<aside class:list={["font-nunito", props.class]}>
   <ul class="w-56 list-none">
     {
       filteredHeadings.map((heading) => (
