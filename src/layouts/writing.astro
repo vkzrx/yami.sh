@@ -5,6 +5,7 @@ import Toc from "~/components/toc.astro";
 
 type Props = MarkdownLayoutProps<{
   title: string;
+  description: string;
   date: string;
 }>;
 
@@ -48,6 +49,7 @@ const { frontmatter, headings } = Astro.props;
           }
         </time>
         <h1 class="font-lora text-6xl">{frontmatter.title}</h1>
+        <p class="text-xl">{frontmatter.description}</p>
       </header>
       <slot />
     </article>
