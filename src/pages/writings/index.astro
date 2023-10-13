@@ -9,7 +9,7 @@ const nonDraftWritings = writings.filter((item) => !item.data.draft);
 
 <MainLayout title="Yami | Writings" withSocials>
   <Quote client:only="react" />
-  <main class="px-10 pb-10 tracking-wider md:mt-10 md:px-32 lg:px-64">
+  <main class="px-10 pb-10 tracking-wider md:mt-10 md:px-32 lg:px-64 2xl:px-96">
     {
       nonDraftWritings.length === 0 && (
         <div class="text-lg text-indigo-500">Coming soon, sharpening the pen...</div>

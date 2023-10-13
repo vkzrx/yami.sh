@@ -14,7 +14,7 @@ const { frontmatter, headings } = Astro.props;
 
 <BaseLayout title={`Yami | ${frontmatter.title}`}>
   <Toc headings={headings} depth={2} class="fixed right-32 top-10" />
-  <main class="flex px-32 pb-24 font-nunito lg:px-96">
+  <main class="flex justify-center pb-24 font-nunito">
     <nav
       class="prose prose-invert left-0 hidden h-screen flex-col justify-between pb-24 pt-3 md:fixed md:flex lg:px-48"
     >
