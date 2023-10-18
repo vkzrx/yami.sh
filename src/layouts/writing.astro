@@ -13,10 +13,9 @@ const { frontmatter, headings } = Astro.props;
 ---
 
 <BaseLayout title={`Yami | ${frontmatter.title}`}>
-  <Toc headings={headings} depth={2} class="fixed right-32 top-10" />
-  <main class="flex justify-center pb-24 font-nunito">
+  <main class="px-4 pb-24 font-nunito md:flex md:justify-center">
     <nav
-      class="prose prose-invert left-0 hidden h-screen flex-col justify-between pb-24 pt-3 md:fixed md:flex lg:px-48"
+      class="prose prose-invert left-0 hidden flex-col justify-between pb-24 pt-3 md:fixed md:px-6 lg:flex lg:px-24 xl:px-48 2xl:px-96"
     >
       <a
         href="/writings"
@@ -37,7 +36,7 @@ const { frontmatter, headings } = Astro.props;
         <span>Writings</span>
       </a>
     </nav>
-    <article class="prose prose-invert">
+    <article class="prose-lg prose-invert md:prose md:prose-invert">
       <header class="mb-6 space-y-4 pt-12">
         <time datetime={new Date(frontmatter.date).toISOString()} class="text-neutral-400">
           {
@@ -54,4 +53,9 @@ const { frontmatter, headings } = Astro.props;
       <slot />
     </article>
   </main>
+  <Toc
+    headings={headings}
+    depth={2}
+    class="right-32 top-10 hidden md:fixed xl:inline 2xl:right-64"
+  />
 </BaseLayout>
