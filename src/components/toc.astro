@@ -9,13 +9,39 @@ type Props = {
 };
 
 const props = Astro.props;
-const filteredHeadings = props.headings.filter((heading) => heading.depth < props.depth + 1);
+
+type TocHeading = MarkdownHeading & {
+  subHeadings: MarkdownHeading[];
+};
+
+/**
+  Format headings into a nested structure. Note it works correctly only for depth 2 and 3.
+*/
+function formatHeadings({ headings, depth }: { headings: MarkdownHeading[]; depth: number }) {
+  const toc: TocHeading[] = [];
+  headings.forEach((heading) => {
+    if (depth < heading.depth) return;
+
+    if (heading.depth === 2) {
+      toc.push({ ...heading, subHeadings: [] });
+      return;
+    }
+
+    toc[toc.length - 1].subHeadings.push(heading);
+  });
+  return toc;
+}
+
+const headings = formatHeadings({
+  headings: props.headings,
+  depth: props.depth,
+});
 ---
 
 <aside class:list={["font-nunito", props.class]}>
   <ul class="w-56 list-none">
     {
-      filteredHeadings.map((heading) => (
+      headings.map((heading) => (
         <li>
           <a
             href={`#${heading.slug}`}
@@ -23,6 +49,18 @@ const filteredHeadings = props.headings.filter((heading) => heading.depth < prop
           >
             {heading.text}
           </a>
+          {heading.subHeadings.length > 0 ? (
+            <ul class="flex list-none flex-col space-y-1">
+              {heading.subHeadings.map((subHeading: MarkdownHeading) => (
+                <a
+                  href={`#${subHeading.slug}`}
+                  class="w-full pl-6 text-sm text-gray-300 no-underline hover:text-indigo-500"
+                >
+                  {subHeading.text}
+                </a>
+              ))}
+            </ul>
+          ) : null}
         </li>
       ))
     }
