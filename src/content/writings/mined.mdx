@@ -15,7 +15,7 @@ Minecraft is one of those games I played hundreds of hours during highschool and
 
 Surely, lots of memories of those nights with friends on [Mumble](https://www.mumble.info) playing on a Minecraft server powered by [Hamachi](https://vpn.net) often arise, even 10 years later.
 
-As I was looking to learn about infrastructure I was wondering what it would take to run my own multiplayer Minecraft server today. I already did it years ago so I could wrap it up in a week-end, isn't it? A classic I sometimes tell myself. In a sense it is but expectations have evolved making me want to build something more advanced. And curiosity often leads to new paths.
+As I was looking to learn about infrastructure I was wondering what it would take to run my own multiplayer Minecraft server today. I already did it years ago so I could wrap it up in a week-end, isn't it? A classic I sometimes tell myself. In a sense it is true but expectations have evolved making me want to build something more advanced. And curiosity often leads to new paths.
 
 ## Foundations
 
@@ -97,7 +97,7 @@ $ pulumi new vm-gcp-go
 
 On GCP, a machine type close to our needs is `e2-standard-2`. It provides 2 vCPUs and 8 GB of RAM. Make sure to choose a region close enough.
 
-Once done, you should end up with something similar to the following. This is how our infrastructure is currently configured. It is reflected on Pulumi and can be updated using `Pulumi up` and deployed using `Pulumi deploy`.
+Once done, you should end up with something similar to the following. This is how our infrastructure is currently configured. It is reflected on Pulumi and can be updated using `pulumi up` and deployed using `pulumi deploy`.
 
 (Dang, I like Go's error handling but it's always so verbose)
 
