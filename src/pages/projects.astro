@@ -3,6 +3,7 @@ import MainLayout from "~/layouts/main.astro";
 
 type Technology =
   | "rust"
+  | "go"
   | "next"
   | "astro"
   | "react"
@@ -24,6 +25,12 @@ type Project = {
 };
 
 const projects: Project[] = [
+  {
+    name: "Mined",
+    description: "An overengineered Minecraft infrastructure",
+    github: "https://github.com/vkzrx/mined",
+    technologies: ["go", "pulumi", "typescript"],
+  },
   {
     name: "Ichiba",
     description: "Japanese style online store where tradition graces fashion",
@@ -60,6 +67,7 @@ const technologyBorderColors: Record<Technology, string> = {
   solid: "border-green-500",
   typescript: "border-teal-500",
   tailwind: "border-sky-500",
+  go: "border-sky-500",
   axum: "border-red-800",
   "react-query": "border-yellow-500",
   fastify: "border-slate-500",
